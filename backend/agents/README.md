@@ -33,3 +33,7 @@ python -m backend.agents.image_extractor_from_files ./files/myworddoc.docx
 
 ### Python packages
 you can create a virtual environment and install packages from the `requirements.txt` file or if using conda you can create an environment using the `environment.yaml` file
+
+### .env File  
+There is a .env.example file with the environment variables that need to be provided. You can set the model and api in the code  
+
