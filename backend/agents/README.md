@@ -1,5 +1,6 @@
 # Agents
 
+
 ## image_extractor_from_files  
 
 This agent can extract images from the following files:
@@ -21,19 +22,40 @@ This agent can extract images from the following files:
 
 currently, the agent works from command line where you call the agent and pass in the path of the file or the URL
 
-**Example**
-1. passing in a URL from the root folder 
-```text
+
+#### Locally from command prompt
+
+from the root folder at the command line run the following  
+1. Using a URL file
+```plaintext
 python -m backend.agents.image_extractor_from_files https://raw.githubusercontent.com/Coding-Forge/Fabric/main/images/admin-portal-settings.png
 ```
 2. passing in a local file from the root folder
-```text
+```plaintext
 python -m backend.agents.image_extractor_from_files ./files/myworddoc.docx
 ```
+
+#### Using FastAPI
+
+from the command line type the following
+```plaintext
+fastapi dev backend/app.py
+```
+
+Open a browser and navigate to 127.0.0.1:8000/docs. You will see a swagger doc where you can try out the APIs
+
+#### Debugging the application  
+change directory to backend and open the app.py file  
+at this point you can click the debug icon from the vscode side panel  
+
 
 ### Python packages
 you can create a virtual environment and install packages from the `requirements.txt` file or if using conda you can create an environment using the `environment.yaml` file
 
 ### .env File  
 There is a .env.example file with the environment variables that need to be provided. You can set the model and api in the code  
+
+
+
+
 

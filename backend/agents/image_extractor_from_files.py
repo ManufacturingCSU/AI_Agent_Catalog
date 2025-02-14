@@ -101,15 +101,6 @@ def upload_and_extract_images(file_path):
 
 async def workwithfile(filename:str):
     # Azure OpenAI Key Authentication
-    client = AzureOpenAI(
-        azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-        api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-        api_version=API_VERSION.GPT4o.value,
-    )
-
-    if not client:
-        print("Client not initialized")
-        exit()
 
     try:
         images = upload_and_extract_images( filename )
@@ -130,9 +121,23 @@ async def workwithfile(filename:str):
             img_base64 = base64.b64encode(img).decode('utf-8')
 
         image_urls.append(f"data:image/png;base64,{img_base64}")
+        
+        await workwithbase64encodedimages(image_urls)
 
 
+async def workwithbase64encodedimages(image_urls:list):
     for image_url in image_urls:
+
+        client = AzureOpenAI(
+            azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
+            api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+            api_version=API_VERSION.GPT4o.value,
+        )
+
+        if not client:
+            print("Client not initialized")
+            exit()
+
         response = client.chat.completions.create(
             model=MODELS.GPT4o.value,
             messages= [
@@ -164,7 +169,7 @@ async def workwithfile(filename:str):
             result = response.choices[0].message 
             print_wrapped_text(result.content, 150)
 
-async def main(file_path: str):
+async def get_file(file_path: str):
     # await workwithfile(file_path)
     if file_path.startswith("http"):
         response = requests.get(file_path)
@@ -190,4 +195,4 @@ if __name__ == "__main__":
         sys.exit(1)
 
     file_path = sys.argv[1]
-    asyncio.run(main(file_path))
+    asyncio.run(get_file(file_path))
