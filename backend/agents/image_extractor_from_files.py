@@ -2,8 +2,6 @@ import os
 import io
 import base64
 import asyncio
-import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), 'tools'))
 
 from openai import AzureOpenAI
 from azure.core.credentials import AzureKeyCredential
@@ -14,7 +12,7 @@ from docx import Document
 from openai import AzureOpenAI  
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider  
 from pptx import Presentation
-from LLM import MODELS, API_VERSION
+from backend.tools.LLM import MODELS, API_VERSION
 
 from dotenv import load_dotenv
 import requests

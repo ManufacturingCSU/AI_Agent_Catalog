@@ -25,7 +25,7 @@ currently, the agent works from command line where you call the agent and pass i
 
 #### Locally from command prompt
 
-from the root folder at the command line run the following  
+If all you want to do is pass in a file and process it you can run the python script from the command line with the following commands  
 1. Using a URL file
 ```plaintext
 python -m backend.agents.image_extractor_from_files https://raw.githubusercontent.com/Coding-Forge/Fabric/main/images/admin-portal-settings.png
@@ -47,6 +47,17 @@ Open a browser and navigate to 127.0.0.1:8000/docs. You will see a swagger doc w
 #### Debugging the application  
 change directory to backend and open the app.py file  
 at this point you can click the debug icon from the vscode side panel  
+
+#### Using Docker containers  
+
+A Docker-compose file has been created to allow for fast build and deployment of the application. From the root folder of your code type the following:
+
+**Linux or Mac** 
+```plaintext
+sudo docker compose -f "docker-compose.yaml" up -d --build
+```
+
+You can then open a browser and navigate to 127.0.0.1:8000/docs 
 
 
 ### Python packages
