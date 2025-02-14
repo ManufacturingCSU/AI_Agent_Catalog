@@ -48,6 +48,7 @@ dependencies:
       - distro==1.9.0
       - et-xmlfile==2.0.0
       - fastapi==0.115.8
+      - fastapi[standard]
       - frozenlist==1.5.0
       - gunicorn==23.0.0
       - h11==0.14.0
