@@ -20,8 +20,6 @@ def ai_search_agent_tab():
         if query:
             url += f"?q={query}"
 
-
-
         response = requests.get(url)
 
         # response = requests.get(

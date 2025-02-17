@@ -6,6 +6,8 @@ from pydantic import BaseModel
 from fastapi import UploadFile, File, HTTPException
 import tempfile
 import base64
+import logging
+logging.basicConfig(level=logging.INFO)
 
 app = FastAPI()
 
@@ -26,11 +28,6 @@ async def receive_url_file(payload: FileURL):
     # Add logic to process the file at payload.url
     return {"status": "File received", "file_url": payload.url}
 
-@app.post("/receive_binary_files")
-async def receive_binary_files(binary_files: list[bytes]):
-    results = await image_extractor_from_files.receive_binary_files(binary_files)
-    return results
-
 @app.post("/upload-file")
 async def upload_file(file: UploadFile = File(...)):
     allowed = {"png", "jpeg", "jpg", "docx", "pptx", "xlsx"}
@@ -39,8 +36,6 @@ async def upload_file(file: UploadFile = File(...)):
     # if ext not in allowed:
     #     raise HTTPException(status_code=400, detail="File type not allowed.")
     ext = "." + ext
-    print(f"File extension: {ext}")    
-
 
     # else:
     with tempfile.NamedTemporaryFile(delete=False, suffix=ext) as tmp:

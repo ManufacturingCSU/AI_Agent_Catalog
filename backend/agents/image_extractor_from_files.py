@@ -97,10 +97,10 @@ def upload_and_extract_images(file_path):
     
     return images
 
-async def receive_binary_files(binary_files: list[bytes]):
+async def receive_binary_files(binary_files: list[dict[str, str]]):
     results = []
     for file_data in binary_files:
-        encoded = base64.b64encode(file_data).decode('utf-8')
+        encoded = base64.b64encode(file_data['file']).decode('utf-8')
         results.append(f"data:application/octet-stream;base64,{encoded}")
     return results
 
@@ -113,6 +113,7 @@ async def workwithfile(filename:str):
         print(f"Error loading workbook: {e}")
         exit()
 
+    # ext = os.path.splitext(filename)[1]
 
     # Convert images to base64 strings
     # save all the images to a list

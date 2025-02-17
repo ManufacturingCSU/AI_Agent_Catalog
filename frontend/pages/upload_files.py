@@ -2,7 +2,8 @@ import streamlit as st
 import base64
 import requests
 
-st.title("This is my stubbed page")
+st.title("Upload Files and URLs")
+st.subheader("This page is designed for identifying images from files and URLs. Currently, you can upload docx, pptx, xlsx, jpg, jpeg, and png files. It is also a good tool for analyzing content from a screenshot.", divider="gray")
 st.sidebar.success("Select an agent from the dropdown above.")
 
 # CSS for the image gallery
@@ -32,34 +33,29 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+######################################################
+# UPLOAD FILES (Local/Network share)
+######################################################
+
 uploaded_files = st.file_uploader("Choose a file", accept_multiple_files=True, type=["docx", "pptx", "xlsx", "jpg", "png"])
 if uploaded_files is not None:
     if "image_urls" not in st.session_state:
         st.session_state["image_urls"] = []
 
-    # file_data = [("files", (f.name, f.getvalue(), f.type)) for f in uploaded_files]
-    # response = requests.post("http://127.0.0.1:8000/receive_binary_files", files=file_data)
-    
-    print(f"what is uploaded_files: {type(uploaded_files)}")
-
-    payload = {"binary_files": uploaded_files}
-    response = requests.post("http://127.0.0.1:8000/receive_binary_files", data=payload)
-
-    st.write(f"Response: {response.status_code}")
-    if response.ok:
-        results = response.json()
-        print(results)
-
-
+    for file in uploaded_files:
+        files = {"file": (file.name, file, file.type)}
+        response = requests.post("http://localhost:8000/upload-file", files=files)
+        if response.status_code == 200:
+            st.success(f"File {file.name} uploaded successfully!")
+        else:
+            st.error(f"Failed to upload file {uploaded_file.name}.")
 
     for f in uploaded_files:
         if f.type in ["image/png", "image/jpeg", "image/jpg"]:
             encoded_data = base64.b64encode(f.getvalue()).decode("utf-8")
             st.session_state["image_urls"].append(encoded_data)
-
-
     
-    st.write(f"The number of files converted to base64 is {len(st.session_state['image_urls'])}")
+    st.write(f"The number of images files processed is {len(st.session_state['image_urls'])}")
     
     for image_url in st.session_state["image_urls"]:
         st.markdown(
@@ -70,9 +66,17 @@ if uploaded_files is not None:
             """,
             unsafe_allow_html=True
         )        
-        # st.image(f"data:image/png;base64,{image_url}").resize(300, 300)
 
+########################################################
+# UPLOAD URL FILE
+########################################################
 
-        # image_urls.append(f"data:image/png;base64,{img_base64}")
-        # await workwithbase64encodedimages(image_urls)
-        # async def workwithbase64encodedimages(image_urls:list):
+multi_urls_input = st.text_area("Enter multiple URLs (one per line)")
+if st.button("Upload Multiple URLs"):
+    urls = [u.strip() for u in multi_urls_input.split("\n") if u.strip()]
+    for u in urls:
+        response = requests.post("http://localhost:8000/url-file", json={"url": u})
+        if response.status_code == 200:
+            st.success(f"Uploaded {u} successfully!")
+        else:
+            st.error(f"Failed to upload {u}.")
