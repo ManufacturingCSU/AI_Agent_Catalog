@@ -6,6 +6,8 @@ from pydantic import BaseModel
 from fastapi import UploadFile, File, HTTPException
 import tempfile
 import base64
+import logging
+logging.basicConfig(level=logging.INFO)
 
 app = FastAPI()
 
@@ -34,8 +36,6 @@ async def upload_file(file: UploadFile = File(...)):
     # if ext not in allowed:
     #     raise HTTPException(status_code=400, detail="File type not allowed.")
     ext = "." + ext
-    print(f"File extension: {ext}")    
-
 
     # else:
     with tempfile.NamedTemporaryFile(delete=False, suffix=ext) as tmp:
