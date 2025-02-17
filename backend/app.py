@@ -26,6 +26,11 @@ async def receive_url_file(payload: FileURL):
     # Add logic to process the file at payload.url
     return {"status": "File received", "file_url": payload.url}
 
+@app.post("/receive_binary_files")
+async def receive_binary_files(binary_files: list[bytes]):
+    results = await image_extractor_from_files.receive_binary_files(binary_files)
+    return results
+
 @app.post("/upload-file")
 async def upload_file(file: UploadFile = File(...)):
     allowed = {"png", "jpeg", "jpg", "docx", "pptx", "xlsx"}
