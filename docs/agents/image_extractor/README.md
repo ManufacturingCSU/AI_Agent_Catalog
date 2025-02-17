@@ -1,7 +1,8 @@
-# Agents
+# Image Extractor
 
+**Purpose**: This agent was created to help analyze images that are put into Word documents, Excel spreadsheets, PowerPoint slides, screen captures and standalone image files (png, jpg, jpeg).  
 
-## image_extractor_from_files  
+## File Types that can be used
 
 This agent can extract images from the following files:
 - Microsoft Office files
