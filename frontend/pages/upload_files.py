@@ -1,6 +1,10 @@
 import streamlit as st
 import base64
 import requests
+import os
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
 
 st.title("Upload Files and URLs")
 st.subheader("This page is designed for identifying images from files and URLs. Currently, you can upload docx, pptx, xlsx, jpg, jpeg, and png files. It is also a good tool for analyzing content from a screenshot.", divider="gray")
@@ -44,7 +48,7 @@ if uploaded_files is not None:
 
     for file in uploaded_files:
         files = {"file": (file.name, file, file.type)}
-        response = requests.post("http://localhost:8000/upload-file", files=files)
+        response = requests.post(f"{os.getenv('BACKEND_URL')}/upload-file", files=files)
         if response.status_code == 200:
             st.success(f"File {file.name} uploaded successfully!")
         else:
@@ -75,7 +79,7 @@ multi_urls_input = st.text_area("Enter multiple URLs (one per line)")
 if st.button("Upload Multiple URLs"):
     urls = [u.strip() for u in multi_urls_input.split("\n") if u.strip()]
     for u in urls:
-        response = requests.post("http://localhost:8000/url-file", json={"url": u})
+        response = requests.post(f"{os.getenv('BACKEND_URL')}/url-file", json={"url": u})
         if response.status_code == 200:
             st.success(f"Uploaded {u} successfully!")
         else:

@@ -149,7 +149,7 @@ async def workwithbase64encodedimages(image_urls:list):
             messages= [
                 {
                     "role": "system",
-                    "content": "You are an AI assistant that helps people find information.",
+                    "content": "You are an AI assistant that helps people find information. If you detect information in a table layout, provide feedback and return as a table using markdown.",
                 },
                 {
                     "role": "user",

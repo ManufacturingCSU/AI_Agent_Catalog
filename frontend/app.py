@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 import os
 import requests
 import json
+from dotenv import load_dotenv
+
+load_dotenv(override=True)
 
 SEARCH_AGENT_ENDPOINT = os.getenv("SEARCH_AGENT_ENDPOINT")
 
@@ -16,7 +19,7 @@ def ai_search_agent_tab():
 
     if st.button("Ask"):
 
-        url = f"http://127.0.0.1:8000/items/{item_id}"
+        url = f"{os.getenv('BACKEND_URL')}/items/{item_id}"
         if query:
             url += f"?q={query}"
 
@@ -64,6 +67,25 @@ def main():
         data_analysis_agent_tab()
 
     st.sidebar.success("Select an agent from the dropdown above.")
+
+    # st.markdown(
+    #     """
+    #     <style>
+    #     .sidebar .sidebar-content {
+    #         transition: margin-left .5s;
+    #         margin-left: -300px;
+    #     }
+    #     .sidebar:hover .sidebar-content {
+    #         margin-left: 0;
+    #     }
+    #     </style>
+    #     """,
+    #     unsafe_allow_html=True
+    # )
+
+    # Sidebar content
+    st.sidebar.title("Slide-out Panel")
+    st.sidebar.write("This is a slide-out panel.")    
 
 
 if __name__ == "__main__":
