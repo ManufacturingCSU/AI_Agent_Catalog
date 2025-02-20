@@ -15,9 +15,7 @@ This agent can extract images from the following files:
     - jpeg
     - jpg
 
-- PDFs
-    - coming soon
-
+- PDFs  
 
 ### How to use the agent  
 - the agent works from command line where you call the agent and pass in the path of the file or the URL
