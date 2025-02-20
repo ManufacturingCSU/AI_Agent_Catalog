@@ -41,7 +41,7 @@ st.markdown(
 # UPLOAD FILES (Local/Network share)
 ######################################################
 
-uploaded_files = st.file_uploader("Choose a file", accept_multiple_files=True, type=["docx", "pptx", "xlsx", "jpg", "png"])
+uploaded_files = st.file_uploader("Choose a file", accept_multiple_files=True, type=["docx", "pptx", "xlsx", "jpg", "png", "pdf"])
 if uploaded_files is not None:
     if "image_urls" not in st.session_state:
         st.session_state["image_urls"] = []
@@ -52,7 +52,7 @@ if uploaded_files is not None:
         if response.status_code == 200:
             st.success(f"File {file.name} uploaded successfully!")
         else:
-            st.error(f"Failed to upload file {uploaded_file.name}.")
+            st.error(f"Failed to upload file {file.name}.")
 
     for f in uploaded_files:
         if f.type in ["image/png", "image/jpeg", "image/jpg"]:

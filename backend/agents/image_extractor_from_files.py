@@ -17,9 +17,30 @@ from backend.tools.LLM import MODELS, API_VERSION
 from dotenv import load_dotenv
 import requests
 from urllib.parse import urlparse
+import logging
+import subprocess
+import fitz  # PyMuPDF
+
+####################################################
+## set up logging
+####################################################
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Load environment variables from .env file
-load_dotenv("../../.env")
+load_dotenv(override=True)
+
+def extract_images_from_pdf(pdf_path):
+    images = []
+    doc = fitz.open(pdf_path)
+    for page_index in range(len(doc)):
+        page = doc.load_page(page_index)
+        for image_info in page.get_images(full=True):
+            xref = image_info[0]
+            base_image = doc.extract_image(xref)
+            images.append(base_image["image"])
+    return images
+
 
 def extract_images_from_pptx(pptx_path):
     presentation = Presentation(pptx_path)
@@ -47,13 +68,36 @@ def print_wrapped_text(text, max_length):
         print(current_line.strip())
 
 def extract_images_from_docx(docx_path):
+    logger.info(f"Extracting images from word doc")
     doc = Document(docx_path)
     images = []
+
+    try:
+        convert_office_file_to_pdf(docx_path, "temp.pdf")
+        logger.info(f"Converting word doc to pdf")
+    except Exception as e:
+        logger.error(f"Error converting word doc to pdf: {e}")
+
     for rel in doc.part.rels.values():
+        
         if "image" in rel.target_ref:
+            # page_number = rel.target_part.page_number
+            # logger.info(f"Page number: {page_number}")
             image = rel.target_part.blob
             images.append(image)
     return images
+
+def convert_office_file_to_pdf(input_file: str, output_file: str) -> None:
+    command = [
+        "libreoffice",
+        "--headless",
+        "--convert-to",
+        "pdf",
+        input_file,
+        "--outdir",
+        os.path.dirname(output_file),
+    ]
+    subprocess.run(command, check=True)
 
 
 def extract_images_from_xlsx(xlsx_path):
@@ -92,6 +136,8 @@ def upload_and_extract_images(file_path):
         images = [load_image_as_base64(file_path)]
     elif file_extension.lower() == '.pptx':
         images = extract_images_from_pptx(file_path)
+    elif file_extension.lower() == '.pdf':
+        images = extract_images_from_pdf(file_path)
     else:
         raise ValueError("Unsupported file type")
     

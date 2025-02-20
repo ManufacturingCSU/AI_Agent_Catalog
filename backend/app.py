@@ -30,7 +30,7 @@ async def receive_url_file(payload: FileURL):
 
 @app.post("/upload-file")
 async def upload_file(file: UploadFile = File(...)):
-    allowed = {"png", "jpeg", "jpg", "docx", "pptx", "xlsx"}
+    allowed = {"png", "jpeg", "jpg", "docx", "pptx", "xlsx", "pdf"}
     ext = file.filename.rsplit(".", 1)[-1].lower()
     
     # if ext not in allowed:
