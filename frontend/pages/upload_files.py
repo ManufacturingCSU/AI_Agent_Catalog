@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 st.title("Upload Files and URLs")
-st.subheader("This page is designed for identifying images from files and URLs. Currently, you can upload docx, pptx, xlsx, jpg, jpeg, and png files. It is also a good tool for analyzing content from a screenshot.", divider="gray")
+st.subheader("This page is designed for identifying images from files and URLs. Currently, you can upload docx, pptx, xlsx, jpg, jpeg, and png files. It is also a good tool for analyzing content from a screenshot. If the image displays some type of error then describe the error with recommendations for fixing it.", divider="gray")
 st.sidebar.success("Select an agent from the dropdown above.")
 
 # CSS for the image gallery
@@ -50,7 +50,15 @@ if uploaded_files is not None:
         files = {"file": (file.name, file, file.type)}
         response = requests.post(f"{os.getenv('BACKEND_URL')}/upload-file", files=files)
         if response.status_code == 200:
-            st.success(f"File {file.name} uploaded successfully!")
+            results = response.json()
+
+            value = results.get("output")
+            if isinstance(value, list):
+                st.session_state["image_urls"].extend(value)
+            else:
+                st.session_state["image_urls"].append(value)
+                
+            st.success(f"File {file.name} uploaded successfully!\nContent: {value}")
         else:
             st.error(f"Failed to upload file {file.name}.")
 

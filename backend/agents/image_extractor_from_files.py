@@ -30,6 +30,8 @@ logger = logging.getLogger(__name__)
 # Load environment variables from .env file
 load_dotenv(override=True)
 
+output_results = []
+
 def extract_images_from_pdf(pdf_path):
     images = []
     doc = fitz.open(pdf_path)
@@ -56,6 +58,7 @@ def extract_images_from_pptx(pptx_path):
     return images
 
 def print_wrapped_text(text, max_length):
+    lines = []
     words = text.split()
     current_line = ""
     for word in words:
@@ -66,6 +69,8 @@ def print_wrapped_text(text, max_length):
             current_line = word + " "
     if current_line:
         print(current_line.strip())
+        lines.append(current_line.strip())
+    return lines
 
 def extract_images_from_docx(docx_path):
     logger.info(f"Extracting images from word doc")
@@ -219,7 +224,9 @@ async def workwithbase64encodedimages(image_urls:list):
 
         if response:
             result = response.choices[0].message 
-            print_wrapped_text(result.content, 150)
+            # output = print_wrapped_text(result.content, 150)
+            output_results.append(result.content)
+
 
 async def get_file(file_path: str):
     # await workwithfile(file_path)
@@ -240,6 +247,9 @@ async def get_file(file_path: str):
             print("Failed to retrieve content from URL.")
     else:
         await workwithfile(file_path)
+
+    if output_results:
+        return output_results
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

@@ -44,9 +44,12 @@ async def upload_file(file: UploadFile = File(...)):
         tmp.write(await file.read())
         tmp.flush()
         print(f"Temporary file created: {tmp.name}")
-        await image_extractor_from_files.get_file(tmp.name)
+        output = await image_extractor_from_files.get_file(tmp.name)
+        if isinstance(output, list):
+            for i in range(0,len(output)):
+                output[i] = output[i].replace("\\n\\n", "\n")
 
-    return {"file_name": file.filename, "status": "Uploaded successfully"}
+    return {"output": output}
 
 
 # if __name__ == "__main__":
