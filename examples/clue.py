@@ -64,6 +64,7 @@ You are a socialite and a philanthropist.
 At the begining of the game you will be dealt cards that consist of rooms, weapons, and people.
 The goal is to determine the solution to the game by querying anyone except the moderator to gain clues as to which room, weapon, and person cards the moderator holds.
 Limit your questions to one per turn.
+Only speak when being addressed by another player.
 Your questions may only be about the cards that the other players hold.
 When asking a question, you will provide a guess in the format of :
     {player}, Was the crime perpetrated in the {room} with a {weapon} committed by {person}
@@ -85,6 +86,7 @@ You are a retired military officer and  a war hero.
 At the begining of the game you will be dealt cards that consist of rooms, weapons, and people.
 The goal is to determine the solution to the game by querying anyone except the moderator to gain clues as to which room, weapon, and person cards the moderator holds.
 Limit your questions to one per turn.
+Only speak when being addressed by another player.
 Your questions may only be about the cards that the other players hold.
 When asking a question, you will provide a guess in the format of :
    {player}, Was the crime perpetrated in the {room} with a {weapon} committed by {person}
@@ -106,6 +108,7 @@ You are a femme fatale and a master of disguise.
 At the begining of the game you will be dealt cards that consist of rooms, weapons, and people.
 The goal is to determine the solution to the game by querying anyone except the moderator to gain clues as to which room, weapon, and person cards the moderator holds.
 Limit your questions to one per turn.
+Only speak when being addressed by another player.
 Your questions may only be about the cards that the other players hold.
 When asking a question, you will provide a guess in the format of :
    {player}, Was the crime perpetrated in the {room} with a {weapon} committed by {person}
@@ -127,6 +130,7 @@ You are a maid and a housekeeper.
 At the begining of the game you will be dealt cards that consist of rooms, weapons, and people.
 The goal is to determine the solution to the game by querying anyone except the moderator to gain clues as to which room, weapon, and person cards the moderator holds.
 Limit your questions to one per turn.
+Only speak when being addressed by another player.
 Your questions may only be about the cards that the other players hold.
 When asking a question, you will provide a guess in the format of :
    {player}, Was the crime perpetrated
@@ -148,6 +152,7 @@ You are a businessman and a con artist.
 At the begining of the game you will be dealt cards that consist of rooms, weapons, and people.
 The goal is to determine the solution to the game by querying anyone except the moderator to gain clues as to which room, weapon, and person cards the moderator holds.
 Limit your questions to one per turn.
+Only speak when being addressed by another player.
 Your questions may only be about the cards that the other players hold.
 When asking a question, you will provide a guess in the format of :
    {player}, Was the crime perpetrated
@@ -169,6 +174,7 @@ You are a professor and a scholar.
 At the begining of the game you will be dealt cards that consist of rooms, weapons, and people.
 The goal is to determine the solution to the game by querying anyone except the moderator to gain clues as to which room, weapon, and person cards the moderator holds.
 Limit your questions to one per turn.
+Only speak when being addressed by another player.
 Your questions may only be about the cards that the other players hold.
 When asking a question, you will provide a guess in the format of :
    {player}, Was the crime perpetrated
@@ -191,7 +197,27 @@ Otherwise you will respond with the following:
 # The players will ask the moderator for the solution.
 
 
-TASK = "each player will ask one question to another player per turn. if the player believes they have the solution they may ask the moderator."
+TASK = """
+    Mr. Body invited six guests to his mansion for a dinner party.
+    The guests are:
+    - Miss Scarlet
+    - Colonel Mustard
+    - Mrs. White
+    - Mr. Green
+    - Mrs. Peacock
+    - Professor Plum
+    Unfortunately for Mr. Body, one of the guests killed him.
+    As the moderator I will hold three cards. One card will be a room, another will be a weapon, 
+    and the last will be a person. Each player will ask one question to another player per turn. 
+    If a player responds with a card that they hold then they can eliminate that card as one of the cards that I hold.
+    if the player believes they have the solution they may guess what three cards I am holding.
+    For the audience, the moderator is holding the following cards:
+    - Room: Kitchen
+    - Weapon: Lead Pipe
+    - Person: Colonel Mustard
+    Moderator, please deal all the cards to the players, any cards that cannot be evenly distributed will be set aside.
+    Players, for the sake of the audience, when it is your first turn, please introduce yourself and your character and the cards that you hold.
+    """
 async def main():
     # 1. Create the moderator agent based on the chat completion service
     agent_moderator = ChatCompletionAgent(
@@ -232,6 +258,7 @@ async def main():
         instructions=PLAYER_PLUM_INSTRUCTIONS,
     )
     # 3. Place the agents in a group chat with a custom termination strategy
+    # You should alter the maximum iterations to a number that is reasonable for your use case.
     group_chat = AgentGroupChat(
         agents=[
             agent_peacock,
@@ -242,7 +269,7 @@ async def main():
             agent_green,
             agent_plum,
         ],
-        termination_strategy=ApprovalTerminationStrategy(agents=[agent_moderator], maximum_iterations=30),
+        termination_strategy=ApprovalTerminationStrategy(agents=[agent_moderator], maximum_iterations=40),
     )
     # 4. Add the task as a message to the group chat
     await group_chat.add_chat_message(message=TASK)
