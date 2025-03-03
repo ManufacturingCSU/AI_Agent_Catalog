@@ -1,0 +1,116 @@
+# Mrs_Peacock: Thank you, esteemed moderator. As Mrs. Peacock, the socialite and philanthropist with a taste for mystery-solving, I am ready for this evening of intrigue. May I have permission to introduce my cards?
+
+**Cards I hold:**
+- Room: Ballroom
+- Weapon: Candlestick
+- Person: Professor Plum
+
+I shall endeavor to navigate this mystery with grace and poise. Let us begin. Whose turn is first?
+# Colonel_Mustard: Ah, a most dramatic evening is upon us! I am Colonel Mustard, retired military officer, decorated war hero, and, more importantly, a man of action and honor. I do not shy away from the challenge of uncovering this heinous crime. Before proceeding, I shall list my cards for the audience.
+
+**Cards I hold:**
+- Room: Conservatory
+- Room: Lounge
+- Weapon: Wrench
+
+Let us proceed in due course. Who begins this investigation?
+# Miss_Scarlet: As Miss Scarlet, I shall introduce myself first, for naturally, I am always at the forefront of curiosity.
+
+I am Miss Scarlet, a woman of mystery and allure. Described as a master of disguise, I’ve been at the center of many an enigma, and tonight is no different. Fear not, darlings, I never shy away from excitement—or peril.
+
+**Cards I hold:**
+- Room: Study
+- Room: Hall
+- Weapon: Rope
+
+And now, my wits are sharp, and my senses attuned. Let the game begin. Who will lead the charge in untangling this sordid affair?
+# Moderator: I am the Moderator and will take no part in the guessing and accusing. However, the question of turn order is for the players to decide. Who among you will step forth to begin unraveling the mystery of Mr. Body's unfortunate demise?
+# Mrs_White: As Mrs. White, humble housekeeper of this grand estate, I shall introduce myself.
+
+I have served within these walls for many years, tending to every corner and detail. And yet, here we are—tragedy has struck, and my duty now extends to uncovering the truth behind Mr. Body's demise.
+
+**Cards I hold:**
+- Room: Dining Room
+- Room: Library
+- Weapon: Knife
+
+Now, while I'd much rather be polishing the silverware, I am prepared to assist in solving this dreadful crime. Shall I begin, or would one of my esteemed companions like to take the lead?
+# Mr_Green: As Mr. Green, let me step in—after all, any businessman worth his salt knows the value of taking initiative.
+
+Greetings, dear companions. I am Mr. Green, a man of the world, known for my business acumen, sharp tongue, and, occasionally, my knack for finding myself in the most precarious situations.
+
+**Cards I hold:**
+- Room: Billiard Room
+- Room: Library
+- Weapon: Revolver
+
+It seems the stakes tonight are higher than any business deal I’ve ever orchestrated. There's a killer in our midst, and I intend to unveil them. Let me pose the first question of this twisted dinner party.
+
+Miss Scarlet, Was the crime perpetrated in the *Hall* with the *Rope* committed by *Professor Plum*?
+# Professor_Plum: I am Professor Plum, a man of intellect, wit, and scholarly repute. My cards, for the audience's awareness, are:
+
+**Cards I hold:**
+- Room: Study
+- Room: Billiard Room
+- Weapon: Wrench
+
+As for Mr. Green's question to Miss Scarlet, let us await her esteemed response.
+# Mrs_Peacock: As Miss Scarlet, I shall answer Mr. Green's query with grace.
+
+Mr. Green, I possess the *Rope* card. I offer you this clue and hope it aids you in unraveling this grim business. The game is yours to continue—who will you question next?
+# Colonel_Mustard: Ah, it seems my turn has arrived. As Colonel Mustard, I shall swiftly step into the fray with military precision.
+
+Mrs. White, Was the crime perpetrated in the *Dining Room* with the *Lead Pipe* committed by *Miss Scarlet*?
+# Miss_Scarlet: As Mrs. White, I must inform you, Colonel Mustard, that I do not have any of the cards you have inquired about. The mystery deepens! Who will advance next in this grim investigation?
+# Moderator: **Moderator:** Colonel Mustard, as Mrs. White has no relevant cards to disprove your question, you may continue to make another observation or pass the turn. The investigation must persist!
+# Mrs_White: As Mrs. White, I must remind the room that the turn moves clockwise, as is customary in such situations. Therefore, the next investigator to speak should be you, Miss Scarlet. What question shall you pose to aid in solving this grim and ghastly puzzle?
+# Mr_Green: Ah, quite right, Mrs. White. Miss Scarlet is always ready to take the floor. 
+
+Mr. Green, Was the crime perpetrated in the *Library* with the *Revolver* committed by *Colonel Mustard*?
+# Professor_Plum: As Mr. Green, I am obliged to reveal that I possess the *Library* card. Use this knowledge as you see fit, Miss Scarlet. The investigation proceeds with the next player!
+# Mrs_Peacock: It seems it is now my turn, Mrs. Peacock, to carry forth this investigation with sophistication and due diligence. Let us examine the situation.
+
+Colonel Mustard, was the crime perpetrated in the *Conservatory* with the *Lead Pipe* committed by *Miss Scarlet*?
+# Colonel_Mustard: Ah, Mrs. Peacock, it seems luck is in your favor. As Colonel Mustard, I must inform you that I possess the *Conservatory* card. This clue, madam, is yours to ponder. Who will take the next step in this tangled web of mystery?
+# Miss_Scarlet: As the game moves forward, it is now the turn of Mrs. White, our diligent housekeeper. Mrs. White, to whom will you direct your next probing question? What secrets will you unveil in this sinister affair?
+# Moderator: As Mrs. White, I shall proceed with care and precision.
+
+Professor Plum, was the crime committed in the *Billiard Room* with the *Knife* by *Mrs. Peacock*?
+# Mrs_White: As Professor Plum, I must inform you, Mrs. White, that I possess the *Billiard Room* card. This clue is now yours to consider as we tread cautiously through this perilous mystery. Who will forge onward next?
+# Mr_Green: As Mr. Green, the game naturally loops back to me. I shall seize the opportunity with enthusiasm to untangle this web.
+
+Professor Plum, was the crime perpetrated in the *Ballroom* with the *Lead Pipe* committed by *Colonel Mustard*?
+# Professor_Plum: As Professor Plum, I must inform you, Mr. Green, that I do not have any of the cards mentioned in your proposed scenario. The case thickens! Who among us will take up the pursuit next?
+# Mrs_Peacock: As Mrs. Peacock, I believe the turn now passes to you, Colonel Mustard. What question shall you pose next in this unfolding enigma? Do proceed with your usual decisiveness!
+# Colonel_Mustard: Thank you, Mrs. Peacock, I shall proceed without delay.
+
+Miss Scarlet, Was the crime perpetrated in the *Hall* with the *Candlestick* committed by *Mrs. White*?
+# Miss_Scarlet: As Miss Scarlet, I must inform you, Colonel Mustard, that I indeed possess the *Hall* card. This information is now yours to ponder. Let us continue this investigation, for the truth still eludes us!
+# Moderator: **Moderator**: Miss Scarlet has provided Colonel Mustard with her response. Mrs. Peacock, esteemed guest, the turn now moves to you. Whom shall you interrogate in pursuit of our mystery's solution?
+# Mrs_White: As Mrs. Peacock, I now gather my thoughts and pose the next pressing question.
+
+Mrs. White, was the crime committed in the *Library* with the *Revolver* by *Colonel Mustard*?
+# Mr_Green: As Mrs. White, I must inform you, Mrs. Peacock, that I possess the *Library* card. May this revelation guide your deductive reasoning. The turn now moves forward in our grim pursuit of the truth.
+# Professor_Plum: As Professor Plum, I believe it is now my turn to contribute to this harrowing investigation.
+
+Miss Scarlet, was the crime perpetrated in the *Study* with the *Lead Pipe* committed by *Colonel Mustard*?
+# Mrs_Peacock: As Miss Scarlet, I must inform you, Professor Plum, that I possess the *Study* card. Let this information assist in your deductions. Who will take their turn next in uncovering our culprit?
+# Colonel_Mustard: As Colonel Mustard, the turn order loops back to our industrious Mrs. White. Mrs. White, the floor is now yours! Whom shall you interrogate in this labyrinthine quest for justice?
+# Miss_Scarlet: As Mrs. White, I shall step forward once more in pursuit of the truth.
+
+Miss Scarlet, was the crime committed in the *Dining Room* with the *Candlestick* by *Mrs. Peacock*?
+# Moderator: As Miss Scarlet, I must inform you, Mrs. White, that I possess the *Candlestick* card. I hope this revelation narrows your investigation. Let the next turn proceed!
+# Mrs_White: Thank you, Miss Scarlet. The turn returns to Mr. Green. Mr. Green, to whom will you direct your next inquiry? The mystery awaits unraveling!
+# Mr_Green: As Mr. Green, I shall seize this opportunity to push the investigation forward.
+
+Mrs. White, was the crime perpetrated in the *Dining Room* with the *Lead Pipe* committed by *Colonel Mustard*?
+# Professor_Plum: As Mrs. White, I must inform you, Mr. Green, that I hold the *Dining Room* card. Let this clue refine your deductions. Who among us will move next in this elusive quest?
+# Mrs_Peacock: As Mrs. Peacock, I now turn my attention to you, Colonel Mustard.
+
+Colonel Mustard, was the crime committed in the *Library* with the *Lead Pipe* by *Miss Scarlet*?
+# Colonel_Mustard: Ah, Mrs. Peacock, a thoughtful inquiry. I must inform you that I do not hold any of the cards you have mentioned in your query. The search continues—who shall take the next step?
+# Miss_Scarlet: As Miss Scarlet, the game rotates back to you. Now it is your chance to further the investigation. Whom will you question next, and on what grounds shall your inquiry rest?
+# Moderator: As Miss Scarlet, I shall direct my question to Professor Plum.
+
+Professor Plum, was the crime committed in the *Ballroom* with the *Lead Pipe* by *Colonel Mustard*?
+# Mrs_White: As Professor Plum, I must inform you, Miss Scarlet, that I possess the *Ballroom* card. May this revelation serve to refine your investigation. Let us continue! Who shall pose the next question?
