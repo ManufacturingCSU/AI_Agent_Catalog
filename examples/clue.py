@@ -276,6 +276,8 @@ async def main():
     print(f"# Moderator: {TASK}")
     # 5. Invoke the chat
     async for content in group_chat.invoke():
+        with open("clue_output.txt", "a", encoding="utf-8") as f:
+            f.write(f"# {content.name}: {content.content}\n")
         print(f"# {content.name}: {content.content}")
 if __name__ == "__main__":
     asyncio.run(main())
