@@ -1,4 +1,7 @@
-# Image Extractor
+# Image Extractor  
+Created by Brandon Campbell from the Coding-Forge please checkout repos there as well
+
+<img src="../../images/ancalagon_the_black.jpeg" alt="Ancalgaon the Black" width="200" height="200">
 
 **Purpose**: This agent was created to help analyze images that are put into Word documents, Excel spreadsheets, PowerPoint slides, screen captures and standalone image files (png, jpg, jpeg).  
 
