@@ -1,5 +1,5 @@
 # Image Extractor  
-Created by Brandon Campbell from the Coding-Forge please checkout repos there as well
+Created by Brandon Campbell from the [Coding-Forge](https://github.com/Coding-Forge) please checkout repos there as well 
 
 <img src="../../images/ancalagon_the_black.jpeg" alt="Ancalgaon the Black" width="200" height="200">
 
